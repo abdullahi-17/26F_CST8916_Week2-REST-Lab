@@ -137,7 +137,7 @@ def delete_task(task_id):
     return '', 204  # 204 is the HTTP status code for 'No Content', indicating the deletion was successful
 
 @app.route('/users/<int:user_id>/tasks', methods=['GET'])
-def get_user_by_tasks(user_id):
+def get_user_tasks(user_id):
     # Check if the user exists
     user = next((user for user in users if user['id'] == user_id), None)
     

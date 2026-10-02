@@ -4,7 +4,7 @@ Accept: application/json
 
 ###
 
-# GET a single taks
+# GET a single task
 GET http://localhost:8000/tasks/1
 Accept: application/json
 
@@ -33,27 +33,17 @@ Content-Type: application/json
   "completed": true
 }
 
+###
+
 # DELETE a task
 DELETE http://localhost:8000/tasks/2
+
+###
 
 # GET all tasks for a user
 GET http://localhost:8000/users/1/tasks
 
 ###
-
-# PUT update a user by ID
-PUT http://localhost:8000/users/1
-Content-Type: application/json
-
-{
-  "name": "John Doe Updated",
-  "email": "john.doe.updated@example.com"
-}
-
-###
-
-# DELETE a user by ID
-DELETE http://localhost:8000/users/1
 
 # GET root URL
 GET http://localhost:8000/
@@ -64,6 +54,8 @@ Accept: text/plain
 # GET nonexistent task
 GET http://localhost:8000/tasks/999
 Accept: application/json
+
+###
 
 # CREATE task with missing fields
 POST http://localhost:8000/tasks
@@ -86,6 +78,8 @@ Content-Type: application/json
   "completed": false
 }
 
+###
+
 # UPDATE nonexistent task
 PUT http://localhost:8000/tasks/999
 Content-Type: application/json  
@@ -96,7 +90,9 @@ Content-Type: application/json
   "completed": true
 }
 
-# DELETE noexistent task
+###
+
+# DELETE nonexistent task
 DELETE http://localhost:8000/tasks/999 
 
 ###
