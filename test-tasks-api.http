@@ -1,3 +1,5 @@
+LOCAL TESTS
+
 # GET all tasks
 GET http://localhost:8000/tasks
 Accept: application/json
@@ -99,3 +101,56 @@ DELETE http://localhost:8000/tasks/999
 
 # GET tasks for nonexistent user
 GET http://localhost:8000/users/999/tasks
+
+###
+
+# AZURE - CREATE task
+POST https://cst8916-api-e7a6emg4fyh6fcfe.mexicocentral-01.azurewebsites.net/tasks
+Content-Type: application/json
+
+{
+    "title": "Azure Test Task",
+    "description": "Testing task creation on Azure",
+    "user_id": 1,
+    "completed": false
+}
+
+###
+
+# AZURE - UPDATE task
+PUT https://cst8916-api-e7a6emg4fyh6fcfe.mexicocentral-01.azurewebsites.net/tasks/1
+Content-Type: application/json
+
+{
+    "title": "Azure Updated Task",
+    "description": "Testing task update on Azure",
+    "completed": true
+}
+
+###
+
+# AZURE - DELETE task
+DELETE https://cst8916-api-e7a6emg4fyh6fcfe.mexicocentral-01.azurewebsites.net/tasks/2
+
+###
+
+# AZURE - nonexistent task
+GET https://cst8916-api-e7a6emg4fyh6fcfe.mexicocentral-01.azurewebsites.net/tasks/999
+
+###
+
+# AZURE - invalid user
+POST https://cst8916-api-e7a6emg4fyh6fcfe.mexicocentral-01.azurewebsites.net/tasks
+Content-Type: application/json
+
+{
+    "title": "Invalid User Test",
+    "description": "This should fail",
+    "user_id": 999,
+    "completed": false
+}
+
+###
+
+# AZURE - nonexistent user
+GET https://cst8916-api-e7a6emg4fyh6fcfe.mexicocentral-01.azurewebsites.net/users/999/tasks
